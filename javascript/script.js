@@ -85,11 +85,12 @@ function retrieveCurrentLocationData(event) {
     document.querySelector("#current-time").innerHTML = getTime(
       response.data.dt * 1000
     );
-    let iconElement = document.querySelector("#icon");
-    iconElement.setAttribute(
-      "src",
-      `http://openweathermap.org/img/wn/${response.data.weather[0].icon}.png`
-    );
+    document
+      .querySelector("#icon")
+      .setAttribute(
+        "src",
+        `http://openweathermap.org/img/wn/${response.data.weather[0].icon}.png`
+      );
   }
   navigator.geolocation.getCurrentPosition(handlePosition);
   function handlePosition(position) {
@@ -119,24 +120,19 @@ function changetoFahrenheit(event) {
   let fahrenheitTemp = (celsiusTemperature * 9) / 5 + 32;
   tempCelsius.classList.remove("active");
   tempFahrenheit.classList.add("active");
-  let currentDegree = document.querySelector("#current-degree");
-  currentDegree.innerHTML = Math.round(fahrenheitTemp);
+  document.querySelector("#current-degree").innerHTML =
+    Math.round(fahrenheitTemp);
 }
 
 let tempFahrenheit = document.querySelector("#fahrenheit-link");
 tempFahrenheit.addEventListener("click", changetoFahrenheit);
 
-// function changetoCelsius(event) {
-// event.preventDefault();
-// let currentTemp = document.querySelector("#current-degree");
-// currentTemp.innerHTML = "36";}
-
 function changetoCelsius(event) {
   event.preventDefault();
-  let currentDegree = document.querySelector("#current-degree");
+  document.querySelector("#current-degree").innerHTML =
+    Math.round(celsiusTemperature);
   tempCelsius.classList.add("active");
   tempFahrenheit.classList.remove("active");
-  currentDegree.innerHTML = Math.round(celsiusTemperature);
 }
 
 let tempCelsius = document.querySelector("#celsius-link");
