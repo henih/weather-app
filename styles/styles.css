@@ -21,25 +21,40 @@
   list-style-type: none;
   color: grey;
   font-size: 16px;
-  line-height: 1;
+  line-height: 1.2;
   display: block;
   position: relative;
   margin-left: 283px;
-  margin-top: -56px;
+  margin-top: -48px;
 }
 
 h5 {
   font-size: 40px;
+  color: grey;
 }
 
 .current-temp {
+  display: block;
   font-size: 50px;
+  margin: 0 auto;
+  line-height: 0;
+  color: grey;
+}
+
+.current-temp .active {
+  color: grey;
+  cursor: default;
+}
+
+.current-temp .active:hover {
+  text-decoration: none;
 }
 
 .units {
   position: relative;
   top: -22px;
-  font-size: 18px;
+  font-size: 17px;
+  margin-left: -8px;
 }
 
 a {
@@ -62,4 +77,17 @@ button {
   display: block;
   margin: 0 auto;
   text-align: center;
+}
+
+h4 {
+  font-size: 15px;
+  line-height: 0px;
+  color: grey;
+}
+
+h6 {
+  font-size: 20px;
+  margin-top: 30px;
+  margin-bottom: 5px;
+  color: grey;
 }
