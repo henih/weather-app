@@ -1,6 +1,5 @@
-function getCurrentDate() {
-  let datedisplay = document.querySelector("h4#current-time");
-  let now = new Date();
+function getTime(timestamp) {
+  let now = new Date(timestamp);
   let days = [
     "Sunday",
     "Monday",
@@ -20,10 +19,8 @@ function getCurrentDate() {
   if (min < 10) {
     min = `0${min}`;
   }
-  datedisplay.innerHTML = `${day} ${hour}:${min}`;
+  return `${day} ${hour}:${min}`;
 }
-getCurrentDate();
-
 function updateCity(event) {
   event.preventDefault();
   let city = document.querySelector("#city-search-field").value;
@@ -52,6 +49,9 @@ function getCurrentData(response) {
   );
 
   document.querySelector("#current-city").innerHTML = response.data.name;
+  document.querySelector("#current-time").innerHTML = getTime(
+    response.data.dt * 1000
+  );
 }
 
 document
