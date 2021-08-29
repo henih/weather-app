@@ -52,6 +52,11 @@ function getCurrentData(response) {
   document.querySelector("#current-time").innerHTML = getTime(
     response.data.dt * 1000
   );
+  let iconElement = document.querySelector("#icon");
+  iconElement.setAttribute(
+    "src",
+    `http://openweathermap.org/img/wn/${response.data.weather[0].icon}.png`
+  );
 }
 
 document
@@ -90,6 +95,14 @@ function retrieveCurrentLocationData(event) {
 
     document.querySelector("#wind").innerHTML = Math.round(
       response.data.wind.speed
+    );
+    document.querySelector("#current-time").innerHTML = getTime(
+      response.data.dt * 1000
+    );
+    let iconElement = document.querySelector("#icon");
+    iconElement.setAttribute(
+      "src",
+      `http://openweathermap.org/img/wn/${response.data.weather[0].icon}.png`
     );
   }
   navigator.geolocation.getCurrentPosition(handlePosition);
