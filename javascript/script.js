@@ -57,27 +57,13 @@ function getCurrentData(response) {
     "src",
     `http://openweathermap.org/img/wn/${response.data.weather[0].icon}.png`
   );
+
+  celsiusTemperature = response.data.main.temp;
 }
 
 document
   .querySelector("#city-search-form")
   .addEventListener("submit", updateCity);
-
-// function changetoFahrenheit(event) {
-// event.preventDefault();
-// let currentTemp = document.querySelector("#current-degree");
-// currentTemp.innerHTML = "97";}
-
-// function changetoCelsius(event) {
-// event.preventDefault();
-// let currentTemp = document.querySelector("#current-degree");
-// currentTemp.innerHTML = "36";}
-
-// let tempCelsius = document.querySelector("#celsius-link");
-// tempCelsius.addEventListener("click", changetoCelsius);
-
-// let tempFahrenheit = document.querySelector("#fahrenheit-link");
-// tempFahrenheit.addEventListener("click", changetoFahrenheit);
 
 function retrieveCurrentLocationData(event) {
   function displayGeoTemp(response) {
@@ -127,4 +113,35 @@ function searchCity(city) {
   let apiUrl = `https://api.openweathermap.org/data/2.5/weather?q=${city}&appid=${apiKey}&units=metric`;
   axios.get(apiUrl).then(getCurrentData);
 }
+
+function changetoFahrenheit(event) {
+  event.preventDefault();
+  let fahrenheitTemp = (celsiusTemperature * 9) / 5 + 32;
+  tempCelsius.classList.remove("active");
+  tempFahrenheit.classList.add("active");
+  let currentDegree = document.querySelector("#current-degree");
+  currentDegree.innerHTML = Math.round(fahrenheitTemp);
+}
+
+let tempFahrenheit = document.querySelector("#fahrenheit-link");
+tempFahrenheit.addEventListener("click", changetoFahrenheit);
+
+// function changetoCelsius(event) {
+// event.preventDefault();
+// let currentTemp = document.querySelector("#current-degree");
+// currentTemp.innerHTML = "36";}
+
+function changetoCelsius(event) {
+  event.preventDefault();
+  let currentDegree = document.querySelector("#current-degree");
+  tempCelsius.classList.add("active");
+  tempFahrenheit.classList.remove("active");
+  currentDegree.innerHTML = Math.round(celsiusTemperature);
+}
+
+let tempCelsius = document.querySelector("#celsius-link");
+tempCelsius.addEventListener("click", changetoCelsius);
+
+let celsiusTemperature = null;
+
 searchCity("Zürich");
