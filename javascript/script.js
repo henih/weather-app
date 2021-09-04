@@ -162,18 +162,6 @@ function searchCity(city) {
   axios.get(apiUrl).then(getCurrentData);
 }
 
-function changetoFahrenheit(event) {
-  event.preventDefault();
-  let fahrenheitTemp = (celsiusTemperature * 9) / 5 + 32;
-  tempCelsius.classList.remove("active");
-  tempFahrenheit.classList.add("active");
-  document.querySelector("#current-degree").innerHTML =
-    Math.round(fahrenheitTemp);
-}
-
-let tempFahrenheit = document.querySelector("#fahrenheit-link");
-tempFahrenheit.addEventListener("click", changetoFahrenheit);
-
 function changetoCelsius(event) {
   event.preventDefault();
   document.querySelector("#current-degree").innerHTML =
