@@ -22,7 +22,13 @@ function getTime(timestamp) {
   return `${day} ${hour}:${min}`;
 }
 
-function displayForecast() {
+function getForecast(coordinates) {
+  let apiKey = "c95b7792f2deeca8f4736c654342258c";
+  let apiURL = `https://api.openweathermap.org/data/2.5/onecall?lat=${coordinates.lat}&lon=${coordinates.lon}&appid=${apiKey}&units=metric`;
+  axios.get(apiURL).then(displayForecast);
+}
+function displayForecast(response) {
+  console.log(response.data.daily);
   let forecastHTML = `<div class="row">`;
   let days = ["Thu", "Fri", "Sat", "Sun"];
   days.forEach(function (days) {
@@ -85,6 +91,8 @@ function getCurrentData(response) {
   );
 
   celsiusTemperature = response.data.main.temp;
+
+  getForecast(response.data.coord);
 }
 
 document
@@ -167,4 +175,3 @@ tempCelsius.addEventListener("click", changetoCelsius);
 let celsiusTemperature = null;
 
 searchCity("Zürich");
-displayForecast();
