@@ -21,6 +21,32 @@ function getTime(timestamp) {
   }
   return `${day} ${hour}:${min}`;
 }
+
+function displayForecast() {
+  let forecastHTML = `<div class="row">`;
+  let days = ["Thu", "Fri", "Sat", "Sun"];
+  days.forEach(function (days) {
+    forecastHTML =
+      forecastHTML +
+      `<div class="col-2">
+      <div class="weather-forecast-date">
+      ${days}
+      </div>
+      <img src="http://openweathermap.org/img/wn/01d.png" alt="" 
+      width ="40" />
+      <div class="weather-forecast-temp"> 
+        <span class="weather-forecast-temp-max">  
+          18°
+        </span>
+        <span class="weather-forecast-temp-min">
+          12°
+        </span>
+       </div>
+  </div>`;
+  });
+  forecastHTML = forecastHTML + `</div>`;
+  document.querySelector("#forecast").innerHTML = forecastHTML;
+}
 function updateCity(event) {
   event.preventDefault();
   let city = document.querySelector("#city-search-field").value;
@@ -141,3 +167,4 @@ tempCelsius.addEventListener("click", changetoCelsius);
 let celsiusTemperature = null;
 
 searchCity("Zürich");
+displayForecast();
