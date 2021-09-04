@@ -17,9 +17,25 @@
   </head>
   <body>
     <div class="container">
+      
      
       <div class="card" style="width: 30rem;">
   <div class="card-body">
+    <form id="city-search-form">
+  <div class="form-group">
+ 
+    <input 
+    type="text" 
+    class="form-control" 
+    id="city-search-field" 
+    aria-describedby="citySearch"
+     placeholder="Choose another city"
+  autofocus="on"
+  autocomplete="off">
+  </div>
+  <button type="submit" class="btn btn-primary" id="city-submit-button">Search</button> 
+    <button type="submit" class="btn btn-secondary" id="current-city-button">Current</button> 
+</form>
     <h5 class="card-title" id= "current-city"> </h5>
      <h4 class="card-title"> Last Updated: <span id="current-time"> </span></h4> 
        <h5 class="card-title">
@@ -63,21 +79,7 @@
       
     </p>
     
-    <form id="city-search-form">
-  <div class="form-group">
- 
-    <input 
-    type="text" 
-    class="form-control" 
-    id="city-search-field" 
-    aria-describedby="citySearch"
-     placeholder="Choose another city"
-  autofocus="on"
-  autocomplete="off">
-  </div>
-  <button type="submit" class="btn btn-primary" id="city-submit-button">Search</button> 
-    <button type="submit" class="btn btn-secondary" id="current-city-button">Current</button> 
-</form>
+    
  
   </div>
  
