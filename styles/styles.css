@@ -91,3 +91,23 @@ h6 {
   margin-bottom: 5px;
   color: grey;
 }
+
+.weather-forecast {
+  margin-top: 20px;
+  text-align: center;
+}
+
+.weather-forecast-date {
+  font-size: 16px;
+  color: grey;
+}
+
+.weather-forecast-temp {
+  font-size: 13px;
+  color: grey;
+}
+
+.weather-forecast-temp-max {
+  color: black;
+  font-weight: bold;
+}
