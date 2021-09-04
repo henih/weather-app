@@ -3,6 +3,12 @@
   margin: 0 auto;
   box-align: center;
   padding: 15px 15px 10px;
+  background: linear-gradient(
+    112.1deg,
+    rgb(32, 38, 57) 11.4%,
+    rgb(63, 76, 119) 69.2%
+  );
+  box-shadow: 10px 5px 5px whitesmoke;
 }
 .card-img-top {
   border-radius: 10px;
@@ -19,7 +25,7 @@
   text-decoration: none;
   padding: 0;
   list-style-type: none;
-  color: grey;
+  color: white;
   font-size: 16px;
   line-height: 1.2;
   display: block;
@@ -30,7 +36,7 @@
 
 h5 {
   font-size: 40px;
-  color: grey;
+  color: white;
 }
 
 .current-temp {
@@ -38,11 +44,11 @@ h5 {
   font-size: 50px;
   margin: 0 auto;
   line-height: 0;
-  color: grey;
+  color: white;
 }
 
 .current-temp .active {
-  color: grey;
+  color: white;
   cursor: default;
 }
 
@@ -66,13 +72,24 @@ a:hover {
 }
 button {
   margin-top: 33px;
+  margin-right: 10px;
   position: relative;
   top: 50%;
   left: 40%;
   -ms-transform: translate(-50%, -50%);
   transform: translate(-50%, -50%);
 }
+.btn-primary {
+  background-color: #ec6e4c;
+  color: black;
+  border: none;
+}
 
+.btn-secondary {
+  background-color: lightgray;
+  color: black;
+  border: none;
+}
 .footer {
   display: block;
   margin: 0 auto;
@@ -82,14 +99,14 @@ button {
 h4 {
   font-size: 15px;
   line-height: 0px;
-  color: grey;
+  color: white;
 }
 
 h6 {
   font-size: 20px;
   margin-top: 30px;
   margin-bottom: 5px;
-  color: grey;
+  color: white;
 }
 
 .weather-forecast {
@@ -99,15 +116,15 @@ h6 {
 
 .weather-forecast-date {
   font-size: 16px;
-  color: grey;
+  color: white;
 }
 
 .weather-forecast-temp {
   font-size: 13px;
-  color: grey;
+  color: white;
 }
 
 .weather-forecast-temp-max {
-  color: black;
+  color: white;
   font-weight: bold;
 }
